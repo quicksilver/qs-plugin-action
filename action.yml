@@ -129,6 +129,11 @@ runs:
 
         # TODO
         # debug
+        pwd
+        ls -A
+        git tag
+        git log | head
+
         git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}"
 
         changelog_md=$(
