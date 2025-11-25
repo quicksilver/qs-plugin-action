@@ -122,6 +122,8 @@ runs:
       shell: bash
       run: |
         set -Eeuf -o pipefail
+        #TODO
+        set -x
 
         brew install pandoc
 
