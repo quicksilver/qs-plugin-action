@@ -46,10 +46,7 @@ runs:
             awk -F/ '{ print $NF; exit }'
         )
         mkdir -p "${QS_SOURCE_ROOT}"
-        # TODO run on the main branch if merged
-        # git clone --recurse-submodules --branch="${latest_tag}" --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
-        # git checkout "${latest_tag}"
-        git clone --recurse-submodules --branch=qs-push-plugin.swift --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
+        git clone --recurse-submodules --branch="${latest_tag}" --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
     - name: build plugin
       shell: bash
       env:
