@@ -134,7 +134,8 @@ runs:
         git tag
         git log | head
 
-        git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}"
+        tag_info=$(git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}")
+        printf 'tag_info=%s\n' "${tag_info}"
 
         changelog_md=$(
           git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}" |
