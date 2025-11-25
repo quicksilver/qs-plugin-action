@@ -122,25 +122,12 @@ runs:
       shell: bash
       run: |
         set -Eeuf -o pipefail
-        #TODO
-        set -x
 
         brew install pandoc
-
-        # TODO
-        # debug
-        pwd
-        ls -A
-        git tag
-        git log | head
-
 
         # Force unshallowing this tag to allow access to the commit message
         # See also: https://github.com/orgs/community/discussions/27155
         git fetch --depth=1 --force origin tag "${GITHUB_REF_NAME}"
-
-        tag_info=$(git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}")
-        printf 'tag_info=%s\n' "${tag_info}"
 
         changelog_md=$(
           git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}" |
