@@ -128,7 +128,7 @@ runs:
         brew install pandoc
 
         changelog_md=$(
-          git log --format=%b --max-count=1 "${GITHUB_REF_NAME}" |
+          git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}" |
             sed '/^$/d'
         )
         changelog_html=$(pandoc -f markdown <<<"${changelog_md}")
