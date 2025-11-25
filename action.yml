@@ -127,6 +127,10 @@ runs:
 
         brew install pandoc
 
+        # TODO
+        # debug
+        git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}"
+
         changelog_md=$(
           git tag --list --format="%(contents:body)" "${GITHUB_REF_NAME}" |
             sed '/^$/d'
