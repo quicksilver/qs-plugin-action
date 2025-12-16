@@ -46,7 +46,10 @@ runs:
             awk -F/ '{ print $NF; exit }'
         )
         mkdir -p "${QS_SOURCE_ROOT}"
-        git clone --recurse-submodules --branch="${latest_tag}" --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
+
+        # TODO: use the most recent tag instead of `main` once qs-build-plugin is available in a release
+        git clone --recurse-submodules --branch=main --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
+        # git clone --recurse-submodules --branch="${latest_tag}" --depth=1 https://github.com/quicksilver/Quicksilver.git "${QS_SOURCE_ROOT}"
     - name: build plugin
       shell: bash
       env:
